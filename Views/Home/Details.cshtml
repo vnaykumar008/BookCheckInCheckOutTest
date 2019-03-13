@@ -1,0 +1,86 @@
+﻿@model BookStore.Models.Book
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISBN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PublishYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublishYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoverPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoverPrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonDetails.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonDetails.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("History")
+        </dt>
+        <dd>
+            @foreach (var history in @Model.History)
+            {
+                <dl class="dl-horizontal">
+
+                    <dt>
+                        @Html.DisplayNameFor(i => history.PersonDetails.Name)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(i => history.PersonDetails.Name)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(i => history.CheckInDateTime)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(i => history.CheckInDateTime)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(i => history.CheckOutDateTime)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(i => history.CheckOutDateTime)
+                    </dd>
+
+                </dl>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Back", "Index", Model.Id)
+</div>
+
